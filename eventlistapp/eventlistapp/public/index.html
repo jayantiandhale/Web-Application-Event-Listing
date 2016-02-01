@@ -1,0 +1,208 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+<style>
+
+
+html {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+body {
+    display: table-row;
+}
+#wrapper {
+    display: table-cell;
+    border: 20px solid red;
+}
+
+
+</style>
+
+
+<style>
+
+html {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+body {
+    display: table-row;
+}
+
+#wrapper1 {
+    display: table-cell;
+    border: 20px solid green;
+}
+
+
+</style>
+
+
+
+
+</head>
+
+</head>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+	<title>Event Management app</title>
+
+</head>
+<body>
+<div id="wrapper">
+		
+	
+	<div class="container" ng-controller="AppCtrl">
+		<h1 align="center">Vishesh Event List App</h1><br>
+		<div class="col-md-2">
+			 <div class="input-group">
+			    <input type="text" align="center" class="form-control" placeholder="Search for..." ng-model="query">
+				</input>
+	    	</div>
+	    </div>
+	    <div class-"col-md-8">
+	    	<button class="btn btn-primary" ng-click="showAddNew()">New Event</button><br><br>
+	    </div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Date</th>
+					<th>From</th>
+					<th>To</th>
+					<th>Location</th>
+					<th>Participants</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="row-primary" ng-show="addNew" >
+					<td><input class="form-control" ng-model="event.Title"></td>
+
+					<td><input type="text" id="datepicker1" class="form-control" ng-model="event.From"></td>
+					<td>
+						<select id="from" class="form-control" ng-model="event.To" selectedI>
+					    <option value="01:00 AM">01:00AM</option>
+					    <option value="02:00 AM">02.00AM</option>
+					    <option value="03:00 AM">03.00AM</option>
+					    <option value="04:00 AM">04.00AM</option>
+					    <option value="05:00 AM">05.00AM</option>
+					    <option value="06:00 AM">06.00AM</option>
+					    <option value="07:00 AM">07.00AM</option>
+					    <option value="08:00 AM">08.00AM</option>
+					    <option value="09:00 AM">09.00AM</option>
+					    <option value="10:00 AM">10.00AM</option>
+					    <option value="11:00 AM">11.00AM</option>
+					    <option value="12:00 PM">12.00PM</option>
+					    <option value="01:00 PM">01.00PM</option>
+					    <option value="02:00 PM">02.00PM</option>
+					    <option value="03:00 PM">03.00PM</option>
+					    <option value="04:00 PM">04.00PM</option>
+					    <option value="05:00 PM">05.00PM</option>
+					    <option value="06:00 PM">06.00PM</option>
+					    <option value="07:00 PM">07.00PM</option>
+					    <option value="08:00 PM">08.00PM</option>
+					    <option value="09:00 PM">09.00PM</option>
+					    <option value="10:00 PM">10.00PM</option>
+					    <option value="11:00 PM">11.00PM</option>
+					    <option value="12:00 PM">12.00AM</option>
+					</select>
+				</td>
+<!--
+					<td><input type="text" id="datepicker1" class="form-control" ng-model="event.To"></td>
+
+				-->
+
+					<td>
+						<select  id="to" class="form-control" ng-model="event.Location">
+						
+					    <option value="01:00 AM">01:00AM</option>
+					    <option value="02:00 AM">02.00AM</option>
+					    <option value="03:00 AM">03.00AM</option>
+					    <option value="04:00 AM">04.00AM</option>
+					    <option value="05:00 AM">05.00AM</option>
+					    <option value="06:00 AM">06.00AM</option>
+					    <option value="07:00 AM">07.00AM</option>
+					    <option value="08:00 AM">08.00AM</option>
+					    <option value="09:00 AM">09.00AM</option>
+					    <option value="10:00 AM">10.00AM</option>
+					    <option value="11:00 AM">11.00AM</option>
+					    <option value="12:00 PM">12.00PM</option>
+					    <option value="01:00 PM">01.00PM</option>
+					    <option value="02:00 PM">02.00PM</option>
+					    <option value="03:00 PM">03.00PM</option>
+					    <option value="04:00 PM">04.00PM</option>
+					    <option value="05:00 PM">05.00PM</option>
+					    <option value="06:00 PM">06.00PM</option>
+					    <option value="07:00 PM">07.00PM</option>
+					    <option value="08:00 PM">08.00PM</option>
+					    <option value="09:00 PM">09.00PM</option>
+					    <option value="10:00 PM">10.00PM</option>
+					    <option value="11:00 PM">11.00PM</option>
+					    <option value="12:00 PM">12.00AM</option>
+					</select>
+				</td>
+					<!--<td><input class="form-control" ng-model="event.Location"></td>-->
+					<td><input class="form-control" ng-model="event.Description"></td>
+					<td><input class="form-control" ng-model="event.Participants"></td>
+					
+					<td><button class="btn btn-primary" ng-click="addEvent()" ng-show="addRemove">Add Event</button></td>
+					<td><button class="btn btn-info" ng-click="update()" ng-show="addUpdate">Update</button></td>
+					<td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+				</tr>
+				<tr ng-repeat="event in eventlist | filter:query">
+					<td>{{event.Title}}</td>
+					<td>{{event.From}}</td>
+					<td>{{event.To}}</td>
+					<td>{{event.Location}}</td>
+					<td>{{event.Description}}</td>
+					<td>{{event.Participants}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(event._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(event._id)">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	<script src="controllers/controller.js"></script>
+
+
+	<script>
+    $(function() {
+      $( "#datepicker" ).datepicker({ minDate: -100, maxDate: "+0D" });
+      $("#datepicker").datepicker("setDate",new Date());
+      $( "#datepicker" ).datepicker( "option", "dateFormat", "dd/mm/yy");
+    });
+</script>
+
+<script>
+    $(function() {
+      $( "#datepicker1" ).datepicker({ minDate: -100, maxDate: "+1440D" });
+      $("#datepicker1").datepicker("setDate",new Date());
+      $( "#datepicker1" ).datepicker( "option", "dateFormat", "dd/mm/yy");
+    });
+</script>
+
+</div>
+
+</body>
+</html>
